@@ -3,7 +3,7 @@
     <h2>About</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus vel, ut optio neque, nobis qui officia consequatur
       corrupti eum in iusto reiciendis asperiores sequi quisquam fugit quos ducimus? Illum, provident?</p>
-    <p>api response:</p>
+    <p>API response:</p>
     <div>{{ data }}</div>
   </div>
 </template>
