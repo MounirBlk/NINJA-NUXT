@@ -8,6 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "git:sync": "git checkout main && git fetch -p && git pull origin main && git branch",
+    "git:sync:dev": "npm run git:sync && git branch -D develop && git checkout -b develop && git branch && git push origin develop",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
     "lint:eslint:fix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
