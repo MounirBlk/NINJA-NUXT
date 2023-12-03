@@ -11,9 +11,13 @@
 <script setup>
 definePageMeta({
   validate: (route) => {
-    // Check if the id is made up of digits
-    return /^\d+$/.test(route.params.id)
+    return /^\d+$/.test(route.params.id) // Check if the id is made up of digits
   },
+})
+
+const route = useRoute()
+useHead({
+  meta: [{ property: 'og:title', content: `App Name - ${route.meta.title}` }],
 })
 
 const { id } = useRoute().params
