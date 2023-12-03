@@ -21,6 +21,10 @@ import '~/assets/css/tailwind.css'
 import { storeToRefs } from 'pinia'
 import { useCounterStore } from '@/stores/counter'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 const color = ref('red')
 
 const store = useCounterStore()

@@ -9,6 +9,13 @@
 </template>
 
 <script setup>
+definePageMeta({
+  validate: (route) => {
+    // Check if the id is made up of digits
+    return /^\d+$/.test(route.params.id)
+  },
+})
+
 const { id } = useRoute().params
 const uri = 'https://fakestoreapi.com/products/' + id
 
