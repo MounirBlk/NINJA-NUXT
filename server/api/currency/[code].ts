@@ -1,11 +1,10 @@
 export default defineEventHandler(async (event) => {
+  const params = event.context.params
+  const code = (params as any).code
+  const { currencyKey } = useRuntimeConfig()
 
-    const params = event.context.params;
-    const code = (params as any).code;
-    const { currencyKey } = useRuntimeConfig()
+  const uri = `https://api.currencyapi.com/v3/latest?currencies=${code}&apikey=${currencyKey}`
 
-    const uri = `https://api.currencyapi.com/v3/latest?currencies=${code}&apikey=${currencyKey}`
-
-    const response = await $fetch(uri)
-    return response
+  const response = await $fetch(uri)
+  return response
 })
