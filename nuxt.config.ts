@@ -27,6 +27,16 @@ export default defineNuxtConfig({
       },
       script: [{ innerHTML: "console.log('Hello world')" }],
     },
+    pageTransition: {
+      name: 'fade', // bounce
+      mode: 'out-in', // default
+    }, // boolean (activation) or object
+    layoutTransition: {
+      name: 'slide', // bounce
+      mode: 'out-in', // default
+    }, // boolean (activation) or object
+    /* layoutTransition: { name: 'layout', mode: 'out-in' },
+    pageTransition: { name: 'page', mode: 'slide-in' }, */
   },
   runtimeConfig: {
     currencyKey: process.env.CURRENCY_API_KEY,
