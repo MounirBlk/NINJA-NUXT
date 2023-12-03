@@ -2,7 +2,9 @@
   <div>
     <h2>
       About {{ store.count }} / {{ store.getCount }}
-      <button type="button" @click="increment">+</button>
+      <v-btn color="indigo" rounded @click="increment">
+        <v-icon>mdi-plus-circle</v-icon>
+      </v-btn>
     </h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus vel, ut
