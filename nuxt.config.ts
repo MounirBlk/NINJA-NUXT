@@ -15,6 +15,10 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
         },
+        {
+          rel: 'stylesheet',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
+        },
       ],
     },
   },
@@ -25,6 +29,7 @@ export default defineNuxtConfig({
   css: [
     'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css',
+    '~/assets/css/tailwind.css',
   ],
   build: {
     transpile: ['vuetify'],
@@ -32,6 +37,29 @@ export default defineNuxtConfig({
   vite: {
     define: {
       'process.env.DEBUG': false,
+    },
+    vue: {
+      customElement: true,
+    },
+    vueJsx: {
+      mergeProps: true,
+    },
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: '@use "@/assets/css/_colors.sass" as *\n',
+        },
+        scss: {
+          additionalData: '@use "@/assets/_colors.scss" as *;',
+        },
+      },
+    },
+  },
+  webpack: {
+    loaders: {
+      vue: {
+        hotReload: true,
+      },
     },
   },
 })

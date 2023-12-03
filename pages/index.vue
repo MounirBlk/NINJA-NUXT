@@ -20,7 +20,26 @@
       exercitationem sit ad autem! Veritatis nihil accusamus recusandae esse?
     </p>
   </div>
+  <div
+    class="static"
+    :class="{ active: isActive, 'text-danger': hasError }"></div>
+  <div :class="classObject"></div>
 </template>
+
+<script>
+const isActive = ref(true)
+const hasError = ref(false)
+
+const classObject = reactive({
+  active: true,
+  'text-danger': false,
+})
+/* const error = ref(null)
+const classObject = computed(() => ({
+  active: isActive.value && !error.value,
+  'text-danger': error.value && error.value.type === 'fatal'
+})) */
+</script>
 
 <style scoped>
 h2 {

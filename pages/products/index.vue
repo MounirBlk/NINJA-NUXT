@@ -20,6 +20,15 @@ useHead({
   title: 'Nuxt Dojo | Merch',
   meta: [{ name: 'description', content: 'Nuxt 3 Merch' }],
 })
+
+/* useHead({
+  link: [
+    {
+      rel: 'stylesheet',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
+    },
+  ],
+}) */
 </script>
 
 <style scoped></style>

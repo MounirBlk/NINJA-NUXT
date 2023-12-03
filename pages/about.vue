@@ -6,7 +6,7 @@
         <v-icon>mdi-plus-circle</v-icon>
       </v-btn>
     </h2>
-    <p>
+    <p class="text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus vel, ut
       optio neque, nobis qui officia consequatur corrupti eum in iusto
       reiciendis asperiores sequi quisquam fugit quos ducimus? Illum, provident?
@@ -17,8 +17,12 @@
 </template>
 
 <script setup>
+import '~/assets/css/tailwind.css'
 import { storeToRefs } from 'pinia'
 import { useCounterStore } from '@/stores/counter'
+
+const color = ref('red')
+
 const store = useCounterStore()
 
 const { increment } = store
@@ -40,6 +44,8 @@ const data = response.data
 </script>
 
 <style scoped>
+/*@import url('~/assets/css/tailwind.css');*/
+
 h2 {
   margin-bottom: 20px;
   font-size: 36px;
@@ -47,5 +53,9 @@ h2 {
 
 p {
   margin: 20px 0;
+}
+
+.text {
+  color: v-bind(color);
 }
 </style>
