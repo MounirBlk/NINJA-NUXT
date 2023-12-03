@@ -1,6 +1,14 @@
 node_modules
+# Ignore artifacts:
 dist
+./logs
+./autres
+*.log*
+
 .nuxt
+.nitro
+.cache
+.env
 .output
 coverage
 components.d.ts

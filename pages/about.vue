@@ -12,14 +12,14 @@
 </template>
 
 <script setup>
-const appConfig = useAppConfig();
+const appConfig = useAppConfig()
 // const { data } = await useFetch('/api/ninja?name=mario')
 // const { data } = await useFetch('/api/ninja?name=mario', {
 //   method: 'post',
 //   body: {age: 30}
 // })
-const response = await useFetch("/api/currency/GBP");
-const data = response.data;
+const response = await useFetch('/api/currency/GBP')
+const data = response.data
 </script>
 
 <style scoped>
