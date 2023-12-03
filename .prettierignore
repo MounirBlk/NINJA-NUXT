@@ -1,0 +1,11 @@
+node_modules
+# Ignore artifacts:
+./dist
+./logs
+./autres
+
+.nuxt
+.output
+coverage
+components.d.ts
+nuxt.d.ts
