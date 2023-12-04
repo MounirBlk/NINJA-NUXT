@@ -9,10 +9,23 @@
         <v-icon>mdi-refresh</v-icon>
       </v-btn>
     </h2>
+    <div>
+      <h1>Nuxt birthday - Current color: {{ color }}</h1>
+      <p>{{ date }}</p>
+      <label for="locale-chooser">Preview a different locale</label>
+      <select id="locale-chooser" v-model="locale">
+        <option v-for="(l, i) of locales" :key="i" :value="l">
+          {{ l }}
+        </option>
+      </select>
+    </div>
     <p class="text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus vel, ut
       optio neque, nobis qui officia consequatur corrupti eum in iusto
       reiciendis asperiores sequi quisquam fugit quos ducimus? Illum, provident?
+    </p>
+    <p>
+      {{ counter }}
     </p>
     <br />
     <div>{{ status ?? 'Unkown status' }}</div>
@@ -33,7 +46,7 @@ definePageMeta({
   middleware: 'auth',
 })
 
-const color = ref('red')
+const redColor = ref('red')
 let pending = ref(true)
 
 const store = useCounterStore()
@@ -76,6 +89,13 @@ const execute = response.execute // reload data
 const refresh = response.refresh // reload data
 const status = response.status // idle pending error success
 pending = response.pending
+
+const counter = useState('counter', () => Math.round(Math.random() * 1000))
+
+const locales = useLocales()
+const locale = useLocale()
+const date = useLocaleDate(new Date('2016-10-26'))
+const color = useColor() // Same as useState('color')
 </script>
 
 <style scoped>
