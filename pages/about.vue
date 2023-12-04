@@ -5,14 +5,22 @@
       <v-btn color="indigo" rounded @click="increment">
         <v-icon>mdi-plus-circle</v-icon>
       </v-btn>
+      <v-btn color="purple" rounded @click="refresh">
+        <v-icon>mdi-refresh</v-icon>
+      </v-btn>
     </h2>
     <p class="text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus vel, ut
       optio neque, nobis qui officia consequatur corrupti eum in iusto
       reiciendis asperiores sequi quisquam fugit quos ducimus? Illum, provident?
     </p>
-    <p>API response:</p>
-    <div>{{ data }}</div>
+    <br />
+    <div>{{ status ?? 'Unkown status' }}</div>
+    <div v-if="pending">API PENDING</div>
+    <div v-else>
+      <span>API response:</span>
+      <div>{{ response.data }}</div>
+    </div>
   </div>
 </template>
 
@@ -26,6 +34,7 @@ definePageMeta({
 })
 
 const color = ref('red')
+let pending = ref(true)
 
 const store = useCounterStore()
 
@@ -43,8 +52,30 @@ const appConfig = useAppConfig()
 //   method: 'post',
 //   body: {age: 30}
 // })
-const response = await useFetch('/api/currency/GBP')
-const data = response.data
+
+/* const { pending, data: apiData } = await useFetch('/api/currency/GBP', {
+  lazy: true,
+}).catch((error) => error.data) */
+
+/* const event = useRequestEvent()
+const result = await fetchWithCookie(event, '/api/currency/GBP')
+onMounted(() => console.log(document.cookie)) */
+
+const headers = useRequestHeaders(['cookie'])
+const response = await useLazyFetch('/api/currency/GBP', {
+  // immediate: false,
+  headers,
+  watch: [count],
+  pick: ['data'], // take only from response
+  /* transform: (e) => {
+    return e.data // take only from response
+  }, */
+})
+const error = response.error
+const execute = response.execute // reload data
+const refresh = response.refresh // reload data
+const status = response.status // idle pending error success
+pending = response.pending
 </script>
 
 <style scoped>

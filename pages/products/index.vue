@@ -10,7 +10,9 @@
 
 <script setup>
 //  fetch the products
-const { data: products } = await useFetch('https://fakestoreapi.com/products')
+const { data: products } = await useFetch(
+  'https://fakestoreapi.com/products',
+).catch((error) => error.data)
 
 definePageMeta({
   layout: 'products',
