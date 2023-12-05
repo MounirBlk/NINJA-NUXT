@@ -25,7 +25,7 @@ export default defineNuxtConfig({
       bodyAttrs: {
         class: 'test',
       },
-      script: [{ innerHTML: "console.log('Hello world')" }],
+      script: [{ innerHTML: "console.log('Hello ninja')" }],
     },
     /* pageTransition: {
       name: 'fade', // bounce
@@ -34,9 +34,9 @@ export default defineNuxtConfig({
     layoutTransition: {
       name: 'slide', // bounce
       mode: 'out-in', // default
-    },  // boolean (activation) or object
+    }, */ // boolean (activation) or object
     layoutTransition: { name: 'layout', mode: 'out-in' },
-    pageTransition: { name: 'page', mode: 'out-in' }, */
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   runtimeConfig: {
     currencyKey: process.env.CURRENCY_API_KEY,

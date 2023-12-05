@@ -25,7 +25,7 @@
       reiciendis asperiores sequi quisquam fugit quos ducimus? Illum, provident?
     </p>
     <p>
-      {{ counter }}
+      {{ formatNumber(counter) }}
     </p>
     <br />
     <div>{{ status ?? 'Unkown status' }}</div>
@@ -46,7 +46,7 @@ definePageMeta({
   middleware: 'auth',
 })
 
-const redColor = ref('red')
+let color = ref('red')
 let pending = ref(true)
 
 const store = useCounterStore()
@@ -95,7 +95,7 @@ const counter = useState('counter', () => Math.round(Math.random() * 1000))
 const locales = useLocales()
 const locale = useLocale()
 const date = useLocaleDate(new Date('2016-10-26'))
-const color = useColor() // Same as useState('color')
+color = useColor() // Same as useState('color')
 </script>
 
 <style scoped>

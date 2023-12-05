@@ -6,6 +6,12 @@
   </div>
 </template>
 
+<script setup>
+useSeoMeta({
+  ogImage: '/logo-lumi.png',
+})
+</script>
+
 <style>
 .page-enter-active,
 .page-leave-active {
@@ -15,5 +21,13 @@
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+.layout-enter-active,
+.layout-leave-active {
+  transition: all 0.4s;
+}
+.layout-enter-from,
+.layout-leave-to {
+  filter: grayscale(1);
 }
 </style>
