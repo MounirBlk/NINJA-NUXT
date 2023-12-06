@@ -14,6 +14,6 @@ export default defineEventHandler(async (event) => {
 
   const response = await $fetch(
     `https://api.currencyapi.com/v3/latest?apikey=${currencyKey}`,
-  )
+  ).catch((error) => error.data)
   return response
 })
