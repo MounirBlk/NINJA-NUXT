@@ -42,6 +42,13 @@ export default defineNuxtConfig({
     currencyKey: process.env.CURRENCY_API_KEY,
     /* public: {} */
   },
+  routeRules: {
+    /* '/': { prerender: true }, // Generated at build time for SEO purpose
+    '/api/*': { cache: { maxAge: 60 * 60 } }, // Cached for 1 hour
+    '/old-page': {
+      redirect: { to: '/about' },
+    }, */
+  },
   css: [
     'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css',
