@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>
-      About {{ store.count }} / {{ store.getCount }}
+      {{ $t('hello') }} {{ $t('about', { name: 'ABOUT' }) }} {{ store.count }} /
+      {{ store.getCount }}
       <v-btn color="indigo" rounded @click="increment">
         <v-icon>mdi-plus-circle</v-icon>
       </v-btn>
