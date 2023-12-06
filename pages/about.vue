@@ -76,6 +76,11 @@ const result = await fetchWithCookie(event, '/api/currency/GBP')
 onMounted(() => console.log(document.cookie)) */
 
 const headers = useRequestHeaders(['cookie'])
+
+onMounted(() => {
+  console.log(true)
+})
+
 const response = await useLazyFetch('/api/currency/GBP', {
   // immediate: false,
   headers,
@@ -85,6 +90,7 @@ const response = await useLazyFetch('/api/currency/GBP', {
     return e.data // take only from response
   }, */
 })
+console.log(response)
 
 const error = response.error
 /* if (error) {
