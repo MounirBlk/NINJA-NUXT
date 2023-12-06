@@ -1,4 +1,4 @@
 {
-    "hello": "Bonjour",
-    "about": "about {name}"
+  "hello": "Bonjour",
+  "about": "about {name}"
 }
