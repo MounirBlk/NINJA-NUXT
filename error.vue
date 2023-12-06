@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h2>{{ error.statusCode }}</h2>
-    <button @click="handleError">Clear errors</button>
+    <NuxtLayout>
+      <h2>{{ error.statusCode }}</h2>
+      <button @click="handleError">Clear errors</button>
+    </NuxtLayout>
   </div>
 </template>
 
