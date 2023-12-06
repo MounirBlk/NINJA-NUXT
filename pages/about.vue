@@ -84,7 +84,15 @@ const response = await useLazyFetch('/api/currency/GBP', {
     return e.data // take only from response
   }, */
 })
+
 const error = response.error
+if (error) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found',
+  })
+}
+
 const execute = response.execute // reload data
 const refresh = response.refresh // reload data
 const status = response.status // idle pending error success
